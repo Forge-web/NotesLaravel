@@ -8,8 +8,8 @@
     <title>@yield('title', 'Notes')</title>
     
 </head>
-<body class="min-h-screen flex bg-gray-300">
-    <main class="flex rounded-xl mx-auto mt-10 h-max max-w-6xl px-4 py-10 border border-gray-500 bg-white">
+<body class="min-h-screen flex bg-white font-mono">
+    <main class="flex mx-auto mt-10 h-max max-w-6xl px-4 py-10 border-2 border-pink-700/50 bg-white">
         @yield('content')
     </main>
 </body>

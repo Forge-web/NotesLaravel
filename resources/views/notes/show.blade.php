@@ -4,14 +4,31 @@
 
 <div class="w-150">
     <div id="notes-view">
+        <a     
+            class="
+                font-light
+                text-2xl
+                p-2
+                cursor-pointer 
+                block rounded 
+                border-2 
+                border-gray-700/60 
+                hover:bg-gray-300/20
+                text-center
+                mb-5
+
+
+            "
+            href="{{ route('index') }}"
+        >
+            Notes
+        </a>
         <div class="grid grid-cols-3 gap-5 w-max float-right">
             <button class="
                 p-2
                 cursor-pointer 
                 block rounded 
-                border-2 
-                border-blue-700/60 
-                hover:bg-blue-300/20
+                border
                 font-light
                 text-lg"
                 onclick="NoteMethods.editButton()"
@@ -22,9 +39,7 @@
                 p-2
                 cursor-pointer 
                 block rounded 
-                border-2 
-                border-green-700/60 
-                hover:bg-green-300/20
+                border
                 font-light
                 text-lg"
                 onclick="NoteMethods.updateButton(id={{ $note->id }}, data={'done': true})"
@@ -35,9 +50,7 @@
                 p-2
                 cursor-pointer 
                 block rounded 
-                border-2 
-                border-red-700/60 
-                hover:bg-red-300/20
+                border
                 font-light
                 text-lg"
                 onclick="NoteMethods.destroy({{ $note->id }}, true)"
@@ -61,9 +74,7 @@
                 p-2
                 cursor-pointer 
                 block rounded 
-                border-2 
-                border-red-700/60 
-                hover:bg-red-300/20
+                border
                 font-light
                 text-lg"
                 onclick="NoteMethods.cancelEditButton()"
@@ -72,9 +83,7 @@
                 p-2
                 cursor-pointer 
                 block rounded 
-                border-2 
-                border-green-700/60 
-                hover:bg-green-300/20
+                border
                 font-light
                 text-lg"
                 onclick="NoteMethods.saveEditButton(id={{ $note->id }}, url_replace='/note/{{ $note->id }}')"

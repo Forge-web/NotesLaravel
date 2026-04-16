@@ -3,52 +3,54 @@
 @section('content')
 
 <div>
-    <div class="flex flex-col-2 gap-50">
-        
-        <div>
-            <button     
-                class="
-                    font-light
-                    text-2xl
-                    p-2
-                    cursor-pointer 
-                    block rounded 
-                    border-2 
-                    border-gray-700/60 
-                    hover:bg-gray-300/20
-                "
-                onclick="NoteMethods.cancelButton()"
-            >
-                Notes
-            </button>
-        </div>
+    <div class="grid grid-cols-2 w-full gap-2">
+        <button     
+            class="
+                font-light
+                text-2xl
+                p-2
+                cursor-pointer 
+                block rounded 
+                border-2 
+                border-pink-700/50
+                hover:bg-pink-300/20
+                basis-2/3
+                
+            "
+            onclick="NoteMethods.cancelButton()"
+        >
+            Notes
+        </button>
         <button class="
-            p-2
+            px-3
             cursor-pointer 
             block rounded 
-            border-2 
-            border-green-700/60 
-            hover:bg-green-300/20
-            font-light
-            text-lg
+            border-2
+            border-pink-700/50
+            hover:bg-pink-300/20 
+            text-3xl
+            text-center
+            text-pink-700/50
+            basis-1/3
         "
         onclick="NoteMethods.addButton()"
         >
-            Add new
+            +
         </button>
+
     </div>
     <div class="mt-5">
-        <div id="notes-list">
+        <div id="notes-list" class="grid grid-cols-2 gap-5">
             @foreach ($notes as $note)
 
-                <div class="rounded-xl px-5 py-4 flex flex-row gap-3 border border-black" id="note-wrapper-{{ $note->id }}">
+                <div class="px-5 py-4 flex flex-row gap-3 border border-pink-700/50" id="note-wrapper-{{ $note->id }}">
                     <a href="/note/{{ $note->id }}" class="m-5 w-full">
                         <div class="basis-2/3">
                             <div class="text-xs uppercase tracking-wide text-gray-400">
                                 {{ $note->created_at?->format('d.m.Y') }}
                             </div>
         
-                            <h3 class="text-xl font-semibold leading-tight text-black">
+                            <h3 class=" text-xl font-semibold leading-tight text-black">
                                 {{ $note->name }}
                             </h3>
         
@@ -57,11 +59,7 @@
                             </p>
                         </div>    
                     </a>
-                    <div class="">
-                        <button onclick="NoteMethods.destroy({{ $note->id }})" class="hover:bg-red-500/50 cursor-pointer px-5 py-2 rounded-xl w-full border-2 border-red-400">
-                            Del
-                        </button>
-                    </div>                
+                             
                 </div>
                 
             @endforeach
@@ -90,9 +88,8 @@
                         p-2
                         cursor-pointer 
                         block rounded 
-                        border-2 
-                        border-red-700/60 
-                        hover:bg-red-300/20
+                        border
+             
                         font-light
                         text-lg"
                     onclick="NoteMethods.cancelButton()"
@@ -106,9 +103,7 @@
                         cursor-pointer 
                         block
                         rounded 
-                        border-2 
-                        border-green-700/60 
-                        hover:bg-green-300/20
+                        border
                         font-light
                         text-lg
                         "
